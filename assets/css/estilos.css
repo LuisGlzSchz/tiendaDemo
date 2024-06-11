@@ -1,10 +1,49 @@
+:root{
+--color-primario: #1b263b;
+--color-secundario: #415a77;
+--color-terc: #778da9;
+--color-cuato: #e0e1dd;
+--color-quto: #0d1b2a;
+
+
+--color-base: #2b2d42;
+--color-gray: #8d99ae;
+--color-gray-light: #edf2f4;
+--color-red-ligth: #ef233c;
+--color-red-dark: #d90429;
+
+}
+
+.section-title h2 {
+    font-size: 32px;
+    /*font-weight: 600;*/
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    text-align: center;
+    color: var(--color-base);
+  }
+.section-title h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 4px;
+    background: var(--color-red-dark);
+    left: 0;
+    right: 0;
+    bottom: 110%;
+    margin: auto;
+  }
+
+
 .btn-flotante {
-font-size: 16px; /* Cambiar el tamaño de la tipografia */
+font-size: 2rem; /* Cambiar el tamaño de la tipografia */
 font-weight: bold; /* Fuente en negrita o bold */
 color: #ffffff; /* Color del texto */
 border-radius: 5px; /* Borde del boton */
 letter-spacing: 2px; /* Espacio entre letras */
-background-color: #6fe91e; /* Color de fondo */
+background-color: #1b263b; /* Color de fondo */
 padding: 18px 30px; /* Relleno del boton */
 position: fixed;
 bottom: 40px;
@@ -15,7 +54,7 @@ z-index: 99;
 text-decoration: none;
 }
 .btn-flotante:hover {
-background-color: #f70743;
+background-color: #e0e1dd;
 transform: translateY(-7px);
 }
 

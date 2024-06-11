@@ -1,5 +1,6 @@
 <?php require_once "config/conexion.php";
 require_once "config/config.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@ require_once "config/config.php";
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./">Vida Informático</a>
+                <a class="navbar-brand" href="index.php">ASP Publicidad</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,9 +73,9 @@ require_once "config/config.php";
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark" style="margin-top: auto; bottom:auto;">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+            <p class="m-0 text-center text-white">Copyright &copy; ASP Publicidad 2024</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
