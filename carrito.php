@@ -95,6 +95,7 @@ require_once "config/config.php";
     <script>
         mostrarCarrito();
 
+        
         function mostrarCarrito() {
             if (localStorage.getItem("productos") != null) {
                 let array = JSON.parse(localStorage.getItem('productos'));

@@ -70,7 +70,7 @@
         </div>
 
         <div class="row">
-            <div class="col">
+            <div class="col d-flex justify-content-center align-items-center">
                 <div class="container">
                     <p>En ASP Publicidad, somos especialistas en brindar soluciones innovadoras y de alta calidad para todas tus necesidades de rotulación, estampados, cerigrafía y publicidad. Con años de experiencia en el sector, nos hemos consolidado como un referente en la impresión de lonas y folletos, ofreciendo a nuestros clientes productos y servicios que destacan por su excelencia y atención al detalle.</p>
                     <p> Nuestro equipo de profesionales apasionados y dedicados trabaja con tecnología de vanguardia para asegurarse de que cada proyecto cumpla con los más altos estándares de calidad. Desde la conceptualización hasta la entrega final, nos esforzamos por superar las expectativas de nuestros clientes, proporcionando resultados que no solo satisfacen sus necesidades, sino que también potencian la visibilidad y el impacto de sus marcas.</p>
@@ -79,13 +79,13 @@
                 </div>
             </div>
             <div class="col">
-                <img src="assets/img/logo.png" alt="" class="img-thumbnail">
+                <img src="images/nuestroTrabajo.jpeg" alt="" class="img-thumbnail">
             </div>
         </div>
     </section>
 
 
-    <section id="estampados" class="container">
+    <section id="estampados" class="container-fluid mt-4">
         <div class="section-title">
             <h2>Estampados</h2>
         </div>
