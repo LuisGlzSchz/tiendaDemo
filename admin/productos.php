@@ -73,9 +73,7 @@ include("includes/header.php"); ?>
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
                 <h5 class="modal-title" id="title">Nuevo Producto</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close dark-x" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
@@ -130,6 +128,7 @@ include("includes/header.php"); ?>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Registrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 </form>
             </div>
         </div>

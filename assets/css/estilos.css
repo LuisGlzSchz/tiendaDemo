@@ -22,20 +22,21 @@
     position: relative;
     text-align: center;
     color: var(--color-base);
+    text-transform: uppercase;
   }
 .section-title h2:after {
     content: "";
     position: absolute;
     display: block;
-    width: 200px;
-    height: 4px;
+    width: 100px;
+    height: 5px;
     background: var(--color-red-dark);
     left: 0;
     right: 0;
     bottom: 110%;
     margin: auto;
+    border-radius: 1.5rem;
   }
-
 
 .btn-flotante {
 font-size: 2rem; /* Cambiar el tamaño de la tipografia */
