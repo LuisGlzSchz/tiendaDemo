@@ -21,6 +21,10 @@ section {
     overflow: hidden;
 }
 
+.title h3{
+    text-align: center;
+}
+
 .section-title h2 {
     font-size: 32px;
     /*font-weight: 600;*/
@@ -126,7 +130,10 @@ section {
         right: 20px;
     }
 }
-
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 .curved {
     position: relative;
     background: #2c3e50;
@@ -165,7 +172,7 @@ section {
     min-height: 105px;
     margin-top: 5px;
     margin-bottom: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 #direccion .card:hover{
@@ -173,7 +180,7 @@ section {
 }
 
 .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
