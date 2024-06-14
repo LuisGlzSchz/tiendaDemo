@@ -34,7 +34,7 @@ require_once "config/config.php";
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-around align-items-center">
                     <form class="container-fluid d-flex justify-content-around align-items-center">
-                        <a class="nav-link" href="index.php?page=shop" target="_self">
+                        <a class="nav-link" href="index.php?page=shop" target="_self" id="btnVolverTienda">
                             <button class="btn btn-outline-dark me-2" type="button">Tienda</button>
                         </a>
                     </form>
@@ -74,14 +74,12 @@ require_once "config/config.php";
                     <input type="text" class="form-control" id="direccion" placeholder="Direccion" required>
                     <label for="direccion">Nombre</label>
                 </div>
-             
 
                 <div class="form-floating mb-3">
                     <input type="numeric" class="form-control" id="telefono" placeholder="Teléfono" required>
                     <label for="telefono">Teléfono</label>
                 </div>
             </div>
-
 
             <div class="col col-lg-6 col-md-6 col-sm-12">
                 <div class="subtitulo pt-3">
@@ -111,7 +109,6 @@ require_once "config/config.php";
                             <div class="col-md-5 ms-auto">
                                 <h4>Total a Pagar: <span id="total_pagar">0.00</span></h4>
                                 <div class="d-grid gap-2">
-                                    <div id="paypal-button-container"></div>
                                     <button class="btn btn-warning" type="button" id="btnVaciar">Vaciar Carrito</button>
                                 </div>
                             </div>
@@ -137,13 +134,11 @@ require_once "config/config.php";
 
     <!-- Core theme JS-->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID; ?>&locale=<?php echo LOCALE; ?>"></script>
     <script src="assets/js/scripts.js"></script>
 
 
     <script>
         mostrarCarrito();
-
 
         function mostrarCarrito() {
             if (localStorage.getItem("productos") != null) {
@@ -174,30 +169,6 @@ require_once "config/config.php";
                             });
                             $('#tblCarrito').html(html);
                             $('#total_pagar').text(res.total);
-                            paypal.Buttons({
-                                style: {
-                                    color: 'blue',
-                                    shape: 'pill',
-                                    label: 'pay'
-                                },
-                                createOrder: function(data, actions) {
-                                    // This function sets up the details of the transaction, including the amount and line item details.
-                                    return actions.order.create({
-                                        purchase_units: [{
-                                            amount: {
-                                                value: res.total
-                                            }
-                                        }]
-                                    });
-                                },
-                                onApprove: function(data, actions) {
-                                    // This function captures the funds from the transaction.
-                                    return actions.order.capture().then(function(details) {
-                                        // This function shows a transaction success message to your buyer.
-                                        alert('Transaction completed by ' + details.payer.name.given_name);
-                                    });
-                                }
-                            }).render('#paypal-button-container');
                         },
                         error: function(error) {
                             console.log(error);
@@ -207,11 +178,6 @@ require_once "config/config.php";
             }
         }
     </script>
-
-
-
-
-
 </body>
 
 </html>

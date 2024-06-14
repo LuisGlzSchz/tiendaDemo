@@ -43,29 +43,38 @@ $(document).ready(function () {
         productos.push(items);
         localStorage.setItem('productos', JSON.stringify(productos));
         mostrar();
-    })
+    });
+
     $('#btnCarrito').click(function(e){
         $('#btnCarrito').attr('href','carrito.php');
-    })
+    });
+
     $('#btnVaciar').click(function(){
         localStorage.removeItem("productos");
         $('#tblCarrito').html('');
         $('#total_pagar').text('0.00');
-    })
+    });
+
+    $('#btnVolverTienda').click(function(){
+        localStorage.removeItem("productos");
+    });
+
     //categoria
     $('#abrirCategoria').click(function(){
         $('#categorias').modal('show');
-    })
+    });
+
     //productos
     $('#abrirProducto').click(function () {
         $('#productos').modal('show');
-    })
+    });
+
     $('.eliminar').click(function(e){
         e.preventDefault();
         if (confirm('Esta seguro de eliminar?')) {
             this.submit();
         }
-    })
+    });
 });
 
 function mostrar(){
