@@ -33,16 +33,16 @@ if (!isset($_GET['page']) || $_GET['page'] !== 'shop') {
     </a>
 
     <!-- New Nav -->
-    <nav class="navbar bg-body-tertiary fixed-top">
+    <nav class="navbar bg-body-tertiary fixed-top mb-5 bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="images/logoASP.png" alt="" class="nav-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end text-bg-dark navbar-dark " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Categorías</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -64,12 +64,12 @@ if (!isset($_GET['page']) || $_GET['page'] !== 'shop') {
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Tienda Online</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Lorem ipsum dolor sit amet.</p>
+                <h1 class="display-4 fw-bolder"></h1>
+                 
             </div>
         </div>
     </header>
-    <section class="py-5">
+    <section class="py-5 mt-5 content">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php
