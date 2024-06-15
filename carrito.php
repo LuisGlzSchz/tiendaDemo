@@ -1,6 +1,5 @@
 <?php require_once "config/conexion.php";
 require_once "config/config.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +17,7 @@ require_once "config/config.php";
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/estilos.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 
 </head>
@@ -33,7 +33,7 @@ require_once "config/config.php";
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-around align-items-center">
-                    <form class="container-fluid d-flex justify-content-around align-items-center">
+                    <form id="cliente" class="container-fluid d-flex justify-content-around align-items-center">
                         <a class="nav-link" href="index.php?page=shop" target="_self" id="btnVolverTienda">
                             <button class="btn btn-outline-dark me-2" type="button">Tienda</button>
                         </a>
@@ -56,45 +56,48 @@ require_once "config/config.php";
     <section class="container-fluid ">
         <div class="row">
             <div class="col col-lg-6 col-md-6 col-sm-12 altaCliente">
-                <div class="subtitulo pt-3">
-                    <h3>Ingresa tus datos</h3>
-                </div>
+                <form action="./controller/Pedido.php" id="Datos"  method="POST" enctype="multipart/form-data">
+                    <div class="subtitulo pt-3">
+                        <h3>Ingresa tus datos</h3>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombre" name="nombre_completo" placeholder="Direccion" required>
+                        <label for="direccion">Nombre</label>
+                    </div>
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
-                    <label for="nombre">Nombre</label>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input type="numeric" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                        <label for="telefono">Teléfono</label>
+                    </div>
 
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="micorreo@hotmail.com" required>
-                    <label for="email">Correo Electrónico</label>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingresa a la direccion donde hará la entrega del pedido" required>
+                        <label for="nombre">Dirreci&oacute;n de entrega</label>
+                    </div>
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="direccion" placeholder="Direccion" required>
-                    <label for="direccion">Nombre</label>
-                </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="micorreo@hotmail.com" required>
+                        <label for="email">Correo Electrónico</label>
+                    </div>
 
-                <div class="form-floating mb-3">
-                    <input type="numeric" class="form-control" id="telefono" placeholder="Teléfono" required>
-                    <label for="telefono">Teléfono</label>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-success" type="button" id="btnSeguir">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
-                            <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                        </svg>
-                        Realizar pedido
-                    </button>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-danger" type="button" id="btnCancelar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
-                        </svg>
-                        Cancelar
-                    </button>
-                </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" type="submit" id="btnFinalizar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
+                                <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
+                            </svg>
+                            Realizar pedido
+                        </button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-danger" type="button" id="btnCancelar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                            </svg>
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
             </div>
 
             <div class="col col-lg-6 col-md-6 col-sm-12 tabla">
@@ -173,34 +176,37 @@ require_once "config/config.php";
         mostrarCarrito();
 
         function mostrarCarrito() {
-    if (localStorage.getItem("productos") != null) {
-        let array = JSON.parse(localStorage.getItem('productos'));
-        if (array.length > 0) {
-            $.ajax({
-                url: 'ajax.php',
-                type: 'POST',
-                async: true,
-                data: {
-                    action: 'buscar',
-                    data: array
-                },
-                success: function(response) {
-                    console.log(response);
-                    const res = JSON.parse(response);
-                    let productosContados = {};
-                    res.datos.forEach(element => {
-                        // Si el producto ya está en el objeto, incrementa la cantidad
-                        if (productosContados[element.id]) {
-                            productosContados[element.id].cantidad += 1;
-                        } else {
-                            // Si no, agrega el producto al objeto con cantidad inicial de 1
-                            productosContados[element.id] = { ...element, cantidad: 1 };
-                        }
-                    });
+            if (localStorage.getItem("productos") != null) {
+                let array = JSON.parse(localStorage.getItem('productos'));
+                if (array.length > 0) {
+                    $.ajax({
+                        url: 'ajax.php',
+                        type: 'POST',
+                        async: true,
+                        data: {
+                            action: 'buscar',
+                            data: array
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            const res = JSON.parse(response);
+                            let productosContados = {};
+                            res.datos.forEach(element => {
+                                // Si el producto ya está en el objeto, incrementa la cantidad
+                                if (productosContados[element.id]) {
+                                    productosContados[element.id].cantidad += 1;
+                                } else {
+                                    // Si no, agrega el producto al objeto con cantidad inicial de 1
+                                    productosContados[element.id] = {
+                                        ...element,
+                                        cantidad: 1
+                                    };
+                                }
+                            });
 
-                    let html = '';
-                    Object.values(productosContados).forEach(prod => {
-                        html += `
+                            let html = '';
+                            Object.values(productosContados).forEach(prod => {
+                                html += `
                         <tr>
                             <td>${prod.nombre}</td>
                             <td><img class="img-thumbnail" src="./assets/img/${prod.imagen}" width="100"></td>
@@ -209,23 +215,23 @@ require_once "config/config.php";
                             <td>${prod.precio * prod.cantidad}</td>
                         </tr>
                         `;
-                    });
+                            });
 
-                    if (res.datos.length > 0) {
-                        $("#btnContinuar").removeAttr('disabled');
-                    } else {
-                        $("#btnContinuar").attr('disabled', 'disabled');
-                    }
-                    $('#tblCarrito').html(html);
-                    $('#total_pagar').text(res.total);
-                },
-                error: function(error) {
-                    // console.log(error);
+                            if (res.datos.length > 0) {
+                                $("#btnContinuar").removeAttr('disabled');
+                            } else {
+                                $("#btnContinuar").attr('disabled', 'disabled');
+                            }
+                            $('#tblCarrito').html(html);
+                            $('#total_pagar').text(res.total);
+                        },
+                        error: function(error) {
+                            // console.log(error);
+                        }
+                    });
                 }
-            });
+            }
         }
-    }
-}
 
         $('#btnContinuar').on('click', function() {
             // localStorage.removeItem('productos');
@@ -237,6 +243,54 @@ require_once "config/config.php";
             $(".altaCliente").hide();
             $(".tabla").show();
         });
+
+        
+        btn = document.querySelector('#btnFinalizar');
+        btn.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            // const formData = new FormData(document.getElementById('Datos'));
+            const formData = new FormData($('#Datos')[0]);
+            console.log(formData);
+            enviar(formData);
+        
+        });
+
+        function enviar(formData) {
+            Swal.fire({
+                title: "¿Desea realizar el pedido?",
+                text: "Asegúrese de que sus datos sean correctos",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Realizar pedido!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Solo si el usuario confirma, se envían los datos
+                    fetch('./controller/Pedido.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            Swal.fire({
+                                title: "Pedido realizado",
+                                text: "Su pedido ha sido realizado con éxito",
+                                icon: "success"
+                            });
+                            console.log(data);
+                        })
+                        .catch(error => console.error('Error:', error));
+                } else {
+                    // Opcional: Manejar el caso de cancelación
+                    Swal.fire({
+                        title: "Cancelado",
+                        text: "El pedido ha sido cancelado",
+                        icon: "error"
+                    });
+                }
+            });
+        }
     </script>
 </body>
 
