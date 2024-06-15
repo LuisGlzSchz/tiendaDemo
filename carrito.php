@@ -55,7 +55,7 @@ require_once "config/config.php";
 
     <section class="container-fluid ">
         <div class="row">
-            <div class="col col-lg-6 col-md-6 col-sm-12">
+            <div class="col col-lg-6 col-md-6 col-sm-12 altaCliente">
                 <div class="subtitulo pt-3">
                     <h3>Ingresa tus datos</h3>
                 </div>
@@ -79,9 +79,25 @@ require_once "config/config.php";
                     <input type="numeric" class="form-control" id="telefono" placeholder="Teléfono" required>
                     <label for="telefono">Teléfono</label>
                 </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success" type="button" id="btnSeguir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
+                            <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
+                        </svg>
+                        Realizar pedido
+                    </button>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-danger" type="button" id="btnCancelar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                        </svg>
+                        Cancelar
+                    </button>
+                </div>
             </div>
 
-            <div class="col col-lg-6 col-md-6 col-sm-12">
+            <div class="col col-lg-6 col-md-6 col-sm-12 tabla">
                 <div class="subtitulo pt-3">
                     <h3>Mi Carrito</h3>
                 </div>
@@ -93,7 +109,7 @@ require_once "config/config.php";
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+
                                                 <th>Producto</th>
                                                 <th>Precio</th>
                                                 <th>Cantidad</th>
@@ -109,8 +125,22 @@ require_once "config/config.php";
                             <div class="col-md-5 ms-auto">
                                 <h4>Total a Pagar: <span id="total_pagar">0.00</span></h4>
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-warning" type="button" id="btnVaciar">Vaciar Carrito</button>
+                                    <button class="btn btn-warning" type="button" id="btnVaciar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                        </svg>
+                                        Vaciar Carrito
+                                    </button>
                                 </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-success" type="button" id="btnContinuar" disabled>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                                            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                                        </svg>
+                                        Proceder con el pedido
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -138,45 +168,73 @@ require_once "config/config.php";
 
 
     <script>
+        $(".altaCliente").hide();
         mostrarCarrito();
 
         function mostrarCarrito() {
-            if (localStorage.getItem("productos") != null) {
-                let array = JSON.parse(localStorage.getItem('productos'));
-                if (array.length > 0) {
-                    $.ajax({
-                        url: 'ajax.php',
-                        type: 'POST',
-                        async: true,
-                        data: {
-                            action: 'buscar',
-                            data: array
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            const res = JSON.parse(response);
-                            let html = '';
-                            res.datos.forEach(element => {
-                                html += `
-                            <tr>
-                                <td>${element.id}</td>
-                                <td>${element.nombre}</td>
-                                <td>${element.precio}</td>
-                                <td>1</td>
-                                <td>${element.precio}</td>
-                            </tr>
-                            `;
-                            });
-                            $('#tblCarrito').html(html);
-                            $('#total_pagar').text(res.total);
-                        },
-                        error: function(error) {
-                            console.log(error);
+    if (localStorage.getItem("productos") != null) {
+        let array = JSON.parse(localStorage.getItem('productos'));
+        if (array.length > 0) {
+            $.ajax({
+                url: 'ajax.php',
+                type: 'POST',
+                async: true,
+                data: {
+                    action: 'buscar',
+                    data: array
+                },
+                success: function(response) {
+                    console.log(response);
+                    const res = JSON.parse(response);
+                    let productosContados = {};
+                    res.datos.forEach(element => {
+                        // Si el producto ya está en el objeto, incrementa la cantidad
+                        if (productosContados[element.id]) {
+                            productosContados[element.id].cantidad += 1;
+                        } else {
+                            // Si no, agrega el producto al objeto con cantidad inicial de 1
+                            productosContados[element.id] = { ...element, cantidad: 1 };
                         }
                     });
+
+                    let html = '';
+                    Object.values(productosContados).forEach(prod => {
+                        html += `
+                        <tr>
+                            <td>${prod.nombre}</td>
+                            <td>${prod.precio}</td>
+                            <td>${prod.cantidad}</td>
+                            <td>${prod.precio * prod.cantidad}</td>
+                        </tr>
+                        `;
+                    });
+
+                    if (res.datos.length > 0) {
+                        $("#btnContinuar").removeAttr('disabled');
+                    } else {
+                        $("#btnContinuar").attr('disabled', 'disabled');
+                    }
+                    $('#tblCarrito').html(html);
+                    $('#total_pagar').text(res.total);
+                },
+                error: function(error) {
+                    console.log(error);
                 }
-            }
+            });
         }
+    }
+}
+
+        $('#btnContinuar').on('click', function() {
+            // localStorage.removeItem('productos');
+            $(".altaCliente").show();
+            $(".tabla").hide();
+        });
+        $('#btnCancelar').on('click', function() {
+            // localStorage.removeItem('productos');
+            $(".altaCliente").hide();
+            $(".tabla").show();
+        });
     </script>
 </body>
 

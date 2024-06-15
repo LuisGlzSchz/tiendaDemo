@@ -53,6 +53,8 @@ $(document).ready(function () {
         localStorage.removeItem("productos");
         $('#tblCarrito').html('');
         $('#total_pagar').text('0.00');
+        //se agrega el disable para  que no tenga funcionalidad
+        $("#btnContinuar").attr('disabled', 'disabled');
     });
 
     $('#btnVolverTienda').click(function(){
