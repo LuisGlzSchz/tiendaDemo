@@ -111,6 +111,7 @@ require_once "config/config.php";
                                             <tr>
 
                                                 <th>Producto</th>
+                                                <th>Imagen</th>
                                                 <th>Precio</th>
                                                 <th>Cantidad</th>
                                                 <th>Sub Total</th>
@@ -202,6 +203,7 @@ require_once "config/config.php";
                         html += `
                         <tr>
                             <td>${prod.nombre}</td>
+                            <td><img class="img-thumbnail" src="./assets/img/${prod.imagen}" width="100"></td>
                             <td>${prod.precio}</td>
                             <td>${prod.cantidad}</td>
                             <td>${prod.precio * prod.cantidad}</td>
@@ -218,7 +220,7 @@ require_once "config/config.php";
                     $('#total_pagar').text(res.total);
                 },
                 error: function(error) {
-                    console.log(error);
+                    // console.log(error);
                 }
             });
         }

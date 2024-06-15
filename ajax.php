@@ -9,6 +9,7 @@ if (isset($_POST)) {
             $query = mysqli_query($conexion, "SELECT * FROM productos WHERE id = $id");
             $result = mysqli_fetch_assoc($query);
             $data['id'] = $result['id'];
+            $data['imagen'] = $result['imagen'];
             $data['precio'] = $result['precio_rebajado'];
             $data['nombre'] = $result['nombre'];
             $total = $total + $result['precio_rebajado'];
