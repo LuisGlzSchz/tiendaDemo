@@ -78,7 +78,7 @@ if (!isset($_GET['page']) || $_GET['page'] !== 'shop') {
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query)) { ?>
                         <div class="col mb-5 productos" category="<?php echo $data['categoria']; ?>">
-                            <div class="card h-100">
+                            <div class="card h-100" style="transform: none; transition: none;">
                                 <!-- Sale badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><?php echo ($data['precio_normal'] > $data['precio_rebajado']) ? 'Oferta' : ''; ?></div>
                                 <!-- Product image-->
