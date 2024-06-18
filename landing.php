@@ -106,32 +106,32 @@
         </div>
 
         <div class="row  d-flex justify-content-center align-items-center">
-            
-            <div class="col-lg-4 ">
+
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/impresion.png" alt="">
                 </div>
                 <h2 class="fw-normal">Impresiones</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                <p>Ofrecemos servicios de impresión de alta calidad para todas sus necesidades, desde folletos y tarjetas de presentación hasta posters y materiales promocionales.</p>
             </div>
 
-            <div class="col-lg-4 ">
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/rotulo.png" alt="">
                 </div>
-                <h2 class="fw-normal">Rotulos</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                <h2 class="fw-normal">Rótulos</h2>
+                <p>Diseñamos y fabricamos rótulos personalizados para negocios y eventos, utilizando materiales duraderos y técnicas de impresión avanzadas para garantizar una excelente visibilidad.</p>
             </div>
 
-            <div class="col-lg-4 ">
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/folleto.png" alt="">
                 </div>
                 <h2 class="fw-normal">Folletos</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                <p>Creación de folletos atractivos y profesionales que capturan la esencia de su mensaje y ayudan a promocionar sus productos o servicios de manera efectiva.</p>
             </div>
 
-            <div class="col-lg-4 ">
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/camisetas.png" alt="">
                 </div>
@@ -139,7 +139,7 @@
                 <p>Creamos camisetas personalizadas con serigrafía de alta calidad, ideales para promocionar su marca o evento especial.</p>
             </div>
 
-            <div class="col-lg-4 ">
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/vinilos.png" alt="">
                 </div>
@@ -147,13 +147,14 @@
                 <p>Diseñamos y producimos vinilos decorativos para paredes, ventanas y vehículos, ofreciendo soluciones creativas para su espacio.</p>
             </div>
 
-            <div class="col-lg-4 ">
+            <div class="col-lg-4">
                 <div class="rounded-container container">
                     <img src="images/mas_servicios.png" alt="">
                 </div>
                 <h2 class="fw-normal">Y Más Servicios</h2>
                 <p>Además, ofrecemos una amplia gama de servicios adicionales como tarjetas de presentación, lonas, sublimado de tazas, gorras, termos, y mucho más. ¡Contáctenos para personalizar cualquier proyecto!</p>
             </div>
+
 
         </div>
     </section>
