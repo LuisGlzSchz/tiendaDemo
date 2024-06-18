@@ -1,5 +1,7 @@
 <?php require_once "config/conexion.php";
 require_once "config/config.php";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +58,11 @@ require_once "config/config.php";
     <section class="container-fluid ">
         <div class="row d-flex justify-content-center">
             <div class="col col-lg-6 col-md-6 col-sm-12 altaCliente card bg-dark text-dark" style="transform: none; transition: none;">
-                <form action="./controller/Pedido.php" id="Datos"  method="POST" enctype="multipart/form-data">
+                <form action="./controller/Pedido.php" id="Datos" method="POST" enctype="multipart/form-data">
                     <div class="subtitulo pt-3">
                         <h3 style="color: #e0e1dd">Ingresa tus datos</h3>
                     </div>
-                    
+
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="nombre" name="nombre_completo" placeholder="Direccion" required>
                         <label for="direccion">Nombre</label>
@@ -83,23 +85,23 @@ require_once "config/config.php";
 
                     <div class="row pb-2">
                         <div class="col-6  d-flex justify-content-center">
-                        <button class="btn btn-success" type="submit" id="btnFinalizar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
-                                <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
-                            </svg>
-                            Realizar pedido
-                        </button>
+                            <button class="btn btn-success" type="submit" id="btnFinalizar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8m5.904 2.803a.5.5 0 1 1-.707-.707L9.293 6H6.525a.5.5 0 1 1 0-1H10.5a.5.5 0 0 1 .5.5v3.975a.5.5 0 0 1-1 0V6.707z" />
+                                </svg>
+                                Realizar pedido
+                            </button>
                         </div>
                         <div class="col-6  d-flex justify-content-center">
-                        <button class="btn btn-danger" type="button" id="btnCancelar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
-                            </svg>
-                            Cancelar pedido
-                        </button>
+                            <button class="btn btn-danger" type="button" id="btnCancelar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                                </svg>
+                                Cancelar pedido
+                            </button>
+                        </div>
                     </div>
-                    </div>
-               
+
                 </form>
             </div>
 
@@ -129,23 +131,23 @@ require_once "config/config.php";
                                 </div>
                             </div>
                             <div class="col-md-5 ms-auto ">
-                                <h4  style="color: #e0e1dd">Total a Pagar: <span id="total_pagar">0.00</span></h4>
+                                <h4 style="color: #e0e1dd">Total a Pagar: <span id="total_pagar">0.00</span></h4>
                                 <div class="row pb-2">
-                                    <div class="col col-md-6 col-sm-12" >
-                                    <button class="btn btn-secondary" type="button" id="btnVaciar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                        Vaciar Carrito
-                                    </button>
+                                    <div class="col col-md-6 col-sm-12">
+                                        <button class="btn btn-secondary" type="button" id="btnVaciar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                            </svg>
+                                            Vaciar Carrito
+                                        </button>
                                     </div>
                                     <div class="col col-md-6 col-sm-12">
-                                    <button class="btn btn-success" type="button" id="btnContinuar" disabled>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
-                                            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-                                        </svg>
-                                        Realizar pedido
-                                    </button>
+                                        <button class="btn btn-success" type="button" id="btnContinuar" disabled>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                                                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                                            </svg>
+                                            Realizar pedido
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -174,127 +176,6 @@ require_once "config/config.php";
     <script src="assets/js/scripts.js"></script>
 
 
-    <script>
-        $(".altaCliente").hide();
-        mostrarCarrito();
-
-        function mostrarCarrito() {
-            if (localStorage.getItem("productos") != null) {
-                let array = JSON.parse(localStorage.getItem('productos'));
-                if (array.length > 0) {
-                    $.ajax({
-                        url: 'ajax.php',
-                        type: 'POST',
-                        async: true,
-                        data: {
-                            action: 'buscar',
-                            data: array
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            const res = JSON.parse(response);
-                            let productosContados = {};
-                            res.datos.forEach(element => {
-                                // Si el producto ya está en el objeto, incrementa la cantidad
-                                if (productosContados[element.id]) {
-                                    productosContados[element.id].cantidad += 1;
-                                } else {
-                                    // Si no, agrega el producto al objeto con cantidad inicial de 1
-                                    productosContados[element.id] = {
-                                        ...element,
-                                        cantidad: 1
-                                    };
-                                }
-                            });
-
-                            let html = '';
-                            Object.values(productosContados).forEach(prod => {
-                                html += `
-                        <tr>
-                            <td>${prod.nombre}</td>
-                            <td><img class="img-thumbnail" src="./assets/img/${prod.imagen}" width="100"></td>
-                            <td>${prod.precio}</td>
-                            <td>${prod.cantidad}</td>
-                            <td>${prod.precio * prod.cantidad}</td>
-                        </tr>
-                        `;
-                            });
-
-                            if (res.datos.length > 0) {
-                                $("#btnContinuar").removeAttr('disabled');
-                            } else {
-                                $("#btnContinuar").attr('disabled', 'disabled');
-                            }
-                            $('#tblCarrito').html(html);
-                            $('#total_pagar').text(res.total);
-                        },
-                        error: function(error) {
-                            // console.log(error);
-                        }
-                    });
-                }
-            }
-        }
-
-        $('#btnContinuar').on('click', function() {
-            // localStorage.removeItem('productos');
-            $(".altaCliente").show();
-            $(".tabla").hide();
-        });
-        $('#btnCancelar').on('click', function() {
-            // localStorage.removeItem('productos');
-            $(".altaCliente").hide();
-            $(".tabla").show();
-        });
-
-        
-        btn = document.querySelector('#btnFinalizar');
-        btn.addEventListener("click", function (event) {
-            event.preventDefault(); 
-            // const formData = new FormData(document.getElementById('Datos'));
-            const formData = new FormData($('#Datos')[0]);
-            console.log(formData);
-            enviar(formData);
-        
-        });
-
-        function enviar(formData) {
-            Swal.fire({
-                title: "¿Desea realizar el pedido?",
-                text: "Asegúrese de que sus datos sean correctos",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Realizar pedido!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Solo si el usuario confirma, se envían los datos
-                    fetch('./controller/Pedido.php', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            Swal.fire({
-                                title: "Pedido realizado",
-                                text: "Su pedido ha sido realizado con éxito",
-                                icon: "success"
-                            });
-                            console.log(data);
-                        })
-                        .catch(error => console.error('Error:', error));
-                } else {
-                    // Opcional: Manejar el caso de cancelación
-                    Swal.fire({
-                        title: "Cancelado",
-                        text: "El pedido ha sido cancelado",
-                        icon: "error"
-                    });
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
