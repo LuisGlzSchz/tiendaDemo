@@ -179,6 +179,19 @@ if ($('#btnFinalizar').length > 0) {
             });
             return;
         }
+        let productosContados = {};
+        res.datos.forEach(element => {
+            // Si el producto ya está en el objeto, incrementa la cantidad
+            if (productosContados[element.id]) {
+                productosContados[element.id].cantidad += 1;
+            } else {
+                // Si no, agrega el producto al objeto con cantidad inicial de 1
+                productosContados[element.id] = {
+                    ...element,
+                    cantidad: 1
+                };
+            }
+        });
 
         const datosCarritoJSON = JSON.stringify(datosCarrito.productos);
 

@@ -16,11 +16,13 @@ if (isset($_POST)) {
         $foto = $fecha . ".jpg";
         $destino = "../assets/img/" . $foto;
         $query = mysqli_query($conexion, "INSERT INTO productos(nombre, descripcion, precio_normal, precio_rebajado, cantidad, imagen, id_categoria) VALUES ('$nombre', '$descripcion', '$p_normal', '$p_rebajado', $cantidad, '$foto', $categoria)");
+        
         if ($query) {
             if (move_uploaded_file($tmpname, $destino)) {
                 header('Location: productos.php');
             }
         }
+        exit();
     }
 }
 include("includes/header.php"); ?>

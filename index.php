@@ -129,4 +129,5 @@ if (!isset($_GET['page']) || $_GET['page'] !== 'shop') {
     <script src="assets/js/scripts.js"></script>
 </body>
 
+
 </html>
